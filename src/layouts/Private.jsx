@@ -1,18 +1,15 @@
 
 import { Navigate } from "react-router-dom";
+import UserRespository from "../repositories/UserRespository";
 
 function Private({children}) {
-  
-  function isLoggedIn() {
-    return true;
-  }
 
   return (
     <div>
         <p>
           Private Layout
         </p>
-        {!isLoggedIn() && <Navigate to="/" replace={true} />}
+        {!UserRespository.isLoggedIn() && <Navigate to="/" replace={true} />}
         {children}
     </div>
   );

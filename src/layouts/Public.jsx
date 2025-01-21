@@ -1,17 +1,14 @@
 import { Navigate } from "react-router-dom";
+import UserRespository from "../repositories/UserRespository";
 
 function Public({children}) {
-
-  function isLoggedIn() {
-    return false;
-  }
 
   return (
     <div>
         <p>
           Public Layout
         </p>
-        {!isLoggedIn() && <Navigate to="/dashboard" replace={true} />}
+        {UserRespository.isLoggedIn() && <Navigate to="/dashboard" replace={true} />}
         {children}
     </div>
   );
